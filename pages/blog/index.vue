@@ -1,8 +1,8 @@
 <template>
-  <article>
-    <h1>{{blogPost.title}}</h1>
-    <div>{{blogPost.body}}</div>
-  </article>
+    <article v-for="(blogPost, index) in blogPosts" :key="`post-${index}`">
+        <h1>{{blogPost.title}}</h1>
+        <div>{{blogPost.body}}</div>
+    </article>
 </template>
 
 <script>
