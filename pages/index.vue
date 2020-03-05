@@ -13,7 +13,7 @@
           Ana Sayfa
         </nuxt-link>
         <nuxt-link
-          to"https://github.com/nuxt/nuxt.js"
+          to="blog"
           class="button--grey"
         >
           Blog
