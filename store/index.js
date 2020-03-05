@@ -24,7 +24,7 @@ export const state = () => ({
     },
     async nuxtServerInit({ commit }) {
       let files = await require.context('~/assets/content/work/', false, /\.json$/);
-      let blogPosts = files.keys().map(key => {
+      let workPosts = files.keys().map(key => {
         let res = files(key);
         res.slug = key.slice(2, -5);
         return res;
