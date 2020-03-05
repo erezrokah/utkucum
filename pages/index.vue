@@ -9,20 +9,15 @@
         My top-notch Nuxt.js project
       </h2>
       <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
+        <nuxt-link to="/">
+          Ana Sayfa
+        </nuxt-link>
+        <nuxt-link
+          to"https://github.com/nuxt/nuxt.js"
           class="button--grey"
         >
-          GitHub
-        </a>
+          Blog
+        </nuxt-link>
       </div>
     </div>
   </div>
