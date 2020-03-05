@@ -64,6 +64,12 @@ export default {
         payload: require(`./assets/content/blog/${file}`),
       };
     });
+    return fs.readdirSync('./assets/content/work').map(file => {
+      return {
+        route: `/work/${path.parse(file).name}`, // Return the slug
+        payload: require(`./assets/content/work/${file}`),
+      };
+    });
   },
 },
   build: {
