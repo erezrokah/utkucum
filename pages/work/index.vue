@@ -2,7 +2,6 @@
     <ul>
         <li v-for="(workPost, index) in workPosts" :key="`post-${index}`">
             <nuxt-link :to="workPost.slug"><h1>{{workPost.title}}</h1></nuxt-link>
-            <div v-html="$md.render(workPost.description)" />
         </li>
     </ul>
 </template>
