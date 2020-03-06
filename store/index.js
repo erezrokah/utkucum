@@ -1,21 +1,43 @@
 export const state = () => ({
     blogPosts: [],
+    workPosts:[]
   });
   
   export const mutations = {
-    setBlogPosts(state, list) {
-      state.blogPosts = list;
+    SET_POSTS(state, data) {
+      state.blogPosts = data
+    },
+    SET_WORKPOSTS(state, data) {
+      state.workPosts = data
     },
   };
   
   export const actions = {
-    async nuxtServerInit({ commit }) {
-      let files = await require.context('~/assets/content/blog/', false, /\.json$/);
-      let blogPosts = files.keys().map(key => {
-        let res = files(key);
-        res.slug = key.slice(2, -5);
-        return res;
-      });
-      await commit('setBlogPosts', blogPosts);
+    async nuxtServerInit({ dispatch }) {
+      await dispatch('getBlogPosts')
+      await dispatch('getWorkPosts')
+    },
+    async getBlogPosts({ state, commit }) {
+      const context = await require.context('~/content/blog/', false, /\.json$/);
+
+      const searchposts = await context.keys().map(key => ({
+        ...context(key),
+        _path: `/blog/${key.replace('.json', '').replace('./', '')}`
+      }));
+
+      commit('SET_POSTS', searchposts.reverse())
+    },
+    async getWorkPosts({ state, commit }) {
+
+
+      const context = await require.context('~/content/work/', false, /\.json$/);
+
+      const workPosts = await context.keys().map(key => ({
+        ...context(key),
+        _path: `/work/${key.replace('.json', '').replace('./', '')}`
+      }));
+
+      commit('SET_WORKPOSTS', workPosts)
+
     },
   };
