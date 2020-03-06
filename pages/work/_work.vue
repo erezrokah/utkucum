@@ -11,7 +11,7 @@ export default {
     if (payload) return { workPost: payload };
     else
       return {
-        workPost: await require(`~/assets/content/work/${params.blog}.json`),
+        workPost: await require(`~/assets/content/work/${params.work}.json`),
       };
   },
 };
