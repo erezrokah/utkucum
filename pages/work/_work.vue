@@ -1,7 +1,6 @@
 <template>
   <article>
     <h1>{{workPost.title}}</h1>
-    <div v-html="$md.render(workPost.body)" />
   </article>
 </template>
 
